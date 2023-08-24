@@ -5,4 +5,3 @@ export default function createInt8TypedArray(length, position, value) {
     throw Error('Position outside range');
 
   }
-  seco
