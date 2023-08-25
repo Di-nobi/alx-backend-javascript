@@ -1,4 +1,4 @@
 export default function getStudentsByLocation(students, city) {
-  let obj = students.filter((param) => param.location === city);
+  const obj = students.filter((param) => param.location === city);
   return obj;
 }
