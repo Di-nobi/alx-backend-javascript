@@ -4,5 +4,8 @@
     "description": "Unitest project",
     "scripts": {
         "test": "mocha"
+    },
+    "dependencies": {
+        "chai": "^4.3.8"
     }
 }
