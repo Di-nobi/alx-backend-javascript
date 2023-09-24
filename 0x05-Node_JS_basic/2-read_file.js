@@ -3,12 +3,12 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8');
-    const figs = data.slice(1).toString().split('\n');
+    const figs = data.toString().split('\n');
     console.log(`Number of students: ${figs.length - 1}`);
     const field = {};
     // total = 0;
     // const students = {};
-    for (let count = 0; count < figs.length; count += 1) {
+    for (let count = 1; count < figs.length; count += 1) {
       // if (figs[count]) {
       //   total += 1;
       // }
@@ -24,7 +24,7 @@ function countStudents(path) {
     for (let aField in field) {
       if (field.hasOwnProperty(aField)) {
         let getlen = field[aField].length;
-        let students = field[aField].join(',');
+        let students = field[aField].join(', ');
         console.log(`Number of students in ${aField}: ${getlen}. List: ${students}`);
       }
     }
