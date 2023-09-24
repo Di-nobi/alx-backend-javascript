@@ -25,7 +25,7 @@ function countStudents(path) {
       if (field.hasOwnProperty(aField)) {
         let getlen = field[aField].length;
         let students = field[aField].join(',');
-        console.log(`Number of students is ${aField}: ${getlen}. List: ${students}`);
+        console.log(`Number of students in ${aField}: ${getlen}. List: ${students}`);
       }
     }
   } catch (error) {
