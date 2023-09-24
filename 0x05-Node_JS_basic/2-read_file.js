@@ -9,12 +9,12 @@ function countStudents(path) {
     // const students = {};
     for (let count = 0; count < figs.length; count += 1) {
       const dema = figs[count].split(',');
-      if (field[dema[3]] == null) {
-        field[dema[3]] = [];
+      if (field[dema[3]]) {
+        field[dema[3]].push(dema[0]);
       }
       else {
-        // field[dema[3]] = [];
-        field[dema[3]].push(dema[0]);
+        field[dema[3]] = [];
+        
       }
     }
     for (let aField in field) {
