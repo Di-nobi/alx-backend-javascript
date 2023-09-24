@@ -6,14 +6,18 @@ function countStudents(path) {
     const figs = data.slice(1).toString().split('\n');
     console.log(`Number of students: ${figs.length - 1}`);
     const field = {};
+    // total = 0;
     // const students = {};
     for (let count = 0; count < figs.length; count += 1) {
+      // if (figs[count]) {
+      //   total += 1;
+      // }
       const dema = figs[count].split(',');
       if (field[dema[3]]) {
         field[dema[3]].push(dema[0]);
       }
       else {
-        field[dema[3]] = [];
+        field[dema[3]] = [dema[0]];
         
       }
     }
