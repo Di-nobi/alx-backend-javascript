@@ -9,18 +9,15 @@ function countStudents(path) {
     // total = 0;
     // const students = {};
     for (let count = 1; count < figs.length; count += 1) {
-      // if (figs[count]) {
-      //   total += 1;
-      // }
       const dema = figs[count].split(',');
       if (field[dema[3]]) {
         field[dema[3]].push(dema[0]);
       }
       else {
-        field[dema[3]] = [dema[0]];
-        
+        field[dema[3]] = [dema[0]];  
       }
     }
+
     for (let aField in field) {
       if (field.hasOwnProperty(aField)) {
         let getlen = field[aField].length;
@@ -29,7 +26,7 @@ function countStudents(path) {
       }
     }
   } catch (error) {
-    throw new Error('Cannot load the database');
+        throw new Error('Cannot load the database');
     }
   }
   module.exports = countStudents;
