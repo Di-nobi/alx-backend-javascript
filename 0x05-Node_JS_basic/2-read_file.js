@@ -3,6 +3,7 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8');
+    // console.log(`Data read from file: ${data}`);
     const figs = data.toString().split('\n');
     const output = figs.length - 1
     console.log(`Number of students: ${output}`);
@@ -25,6 +26,7 @@ function countStudents(path) {
       }
     };
   } catch (error) {
+    console.error("Error:", error);
     throw new Error('Cannot load the database');
     }
   };
