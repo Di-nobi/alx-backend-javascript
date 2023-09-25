@@ -28,7 +28,7 @@ async function countStudents(path) {
         console.log(`Number of students in ${aField}: ${getlen}. List: ${students}`);
         }
     };
-}   catch (error) {
+    }   catch (error) {
     console.error(error.message);
     }
 }
