@@ -7,8 +7,6 @@ function countStudents(path) {
     const output = figs.length - 1
     console.log(`Number of students: ${output}`);
     const field = {};
-    // total = 0;
-    // const students = {};
     for (let count = 1; count < figs.length; count += 1) {
       const dema = figs[count].split(',');
       if (field[dema[3]]) {
