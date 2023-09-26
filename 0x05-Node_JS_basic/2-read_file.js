@@ -4,7 +4,7 @@ function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf-8');
     // console.log(`Data read from file: ${data}`);
-    const figs = data.toString().split('\n');
+    const figs = data.trim().split('\n');
     const output = figs.length - 1
     console.log(`Number of students: ${output}`);
     const field = {};
@@ -30,4 +30,3 @@ function countStudents(path) {
       }
   };
   module.exports = countStudents;
-  
