@@ -6,7 +6,7 @@ async function countStudents(path) {
     if (data == null) {
         throw Error('Cannot load the database');
     }
-    const figs = data.toString().split('\n');
+    const figs = data.trim().split('\n');
     const output = figs.length - 1
     console.log(`Number of students: ${output}`);
     const field = {};
