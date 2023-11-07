@@ -24,7 +24,7 @@ function countStudents(path) {
       console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ')}`);
     });
   } catch (err) {
-    throw Error('Cannot load the database')
-  };
+    throw Error('Cannot load the database');
+  }
 }
 module.exports = countStudents;
