@@ -27,6 +27,6 @@ async function countStudents(path) {
       console.log(err.message);
     };
   }
-
-
+  
 module.exports = countStudents;
+
