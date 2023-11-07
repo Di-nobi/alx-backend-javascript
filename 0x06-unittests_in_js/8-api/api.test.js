@@ -4,7 +4,7 @@ const expect = chai.expect;
 const request = require('request');
 const {describe, it} = require("mocha");
 
-describe('api', function () {
+describe('GET /', function () {
     const datas = {
         url: 'http://localhost:7865',
         method: 'GET'
