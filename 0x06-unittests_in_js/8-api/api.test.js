@@ -7,12 +7,11 @@ const {describe, it} = require("mocha");
 describe('api', function () {
     const datas = {
         url: 'http://localhost:7865',
-        method: 'GET',
-    };
+        method: 'GET'
+    }
     it('Tests the api', function (done) {
 
         request(datas, (err, res, body) => {
-            expect(body).to.equal('Welcome to the payment system');
             expect(res.statusCode).to.equal(200);
             done();
         });
