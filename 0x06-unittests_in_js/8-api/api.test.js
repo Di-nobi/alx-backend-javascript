@@ -26,6 +26,7 @@ describe('api', function () {
     it('checks for the content length', function(done) {
         request(datas, (err, res, body) => {
             expect(res.headers['content-length']).to.equal('29');
+            done();
         });
     });
 });
