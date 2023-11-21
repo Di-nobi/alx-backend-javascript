@@ -14,6 +14,7 @@ function countStudents(path) {
         fields[field] = { count: 0, names: [] };
       }
 
+      /* eslint-disable no-plusplus */
       fields[field].count++;
       fields[field].names.push(firstName);
     });

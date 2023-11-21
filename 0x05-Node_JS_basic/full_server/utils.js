@@ -24,3 +24,33 @@ module.exports = function readDatabase(filePath) {
     });
   });
 };
+
+// const { readFile } = require('fs');
+
+// module.exports = function readStudentDatabase(filePath) {
+//   const studentRecords = {};
+
+//   return new Promise((resolve, reject) => {
+//     fs.readFile(filePath, 'utf8')
+//       .then(data => {
+//         const lines = data.split('\n');
+//         const recordsWithoutHeader = lines.slice(1);
+
+//         for (let i = 0; i < recordsWithoutHeader.length; i += 1) {
+//           if (recordsWithoutHeader[i]) {
+//             const fields = recordsWithoutHeader[i].split(',');
+//             const studentID = fields[3];
+
+//             if (Object.prototype.hasOwnProperty.call(studentRecords, studentID)) {
+//               studentRecords[studentID].push(fields[0]);
+//             } else {
+//               studentRecords[studentID] = [fields[0]];
+//             }
+//           }
+//         }
+
+//         resolve(studentRecords);
+//       })
+//       .catch(err => reject(err));
+//   });
+// };
