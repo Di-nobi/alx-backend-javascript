@@ -1,31 +1,36 @@
 const fs = require('fs');
 
-function countStudents(path) {
+module.exports = function countStudents(path) {
   try {
-    const data = fs.readFileSync(path, 'utf-8');
-    const figs = data.toString().split('\n');
-    const stds = figs.slice(1).filter((fig) => fig.trim().length > 0).map((fig) => fig.split(','));
-
+    // read data
+    const data = fs.readFileSync(path, { encoding: 'utf-8' });
+    // split data and taking only list without header
+    const lines = data.split('\n').slice(1, -1);
+    // give the header of data
+    const header = data.split('\n').slice(0, 1)[0].split(',');
+    // find firstname and field index
+    const idxFn = header.findIndex((ele) => ele === 'firstname');
+    const idxFd = header.findIndex((ele) => ele === 'field');
+    // declarate two dictionaries for count each fields and store list of students
     const fields = {};
-    stds.forEach((std) => {
-      const [firstName,,, field] = std;
+    const students = {};
 
-      if (!fields[field]) {
-        fields[field] = { count: 0, names: [] };
+    lines.forEach((line) => {
+      const list = line.split(',');
+      if (!fields[list[idxFd]]) fields[list[idxFd]] = 0;
+      fields[list[idxFd]] += 1;
+      if (!students[list[idxFd]]) students[list[idxFd]] = '';
+      students[list[idxFd]] += students[list[idxFd]] ? `, ${list[idxFn]}` : list[idxFn];
+    });
+
+    console.log(`Number of students: ${lines.length}`);
+    for (const key in fields) {
+      if (Object.hasOwnProperty.call(fields, key)) {
+        const element = fields[key];
+        console.log(`Number of students in ${key}: ${element}. List: ${students[key]}`);
       }
-
-      /* eslint-disable no-plusplus */
-      fields[field].count++;
-      fields[field].names.push(firstName);
-    });
-
-    console.log(`Number of students: ${stds.length}`);
-
-    Object.keys(fields).forEach((field) => {
-      console.log(`Number of students in ${field}: ${fields[field].count}. List: ${fields[field].names.join(', ')}`);
-    });
-  } catch (err) {
-    throw Error('Cannot load the database');
+    }
+  } catch (error) {
+    throw new Error('Cannot load the database');
   }
-}
-module.exports = countStudents;
+};
