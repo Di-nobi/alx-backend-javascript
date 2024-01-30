@@ -7,7 +7,7 @@ function countStudents(path) {
       const csli = [];
       const sWE = [];
       for (let i = 0; i < line.length; i++) {
-          const datas = line[i].split(',').trim();
+          const datas = line[i].trim().split(',');
           const mydata = datas[3];
 
           if (mydata == 'CS') {
